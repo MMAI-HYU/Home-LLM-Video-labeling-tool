@@ -1,0 +1,117 @@
+version: "1.0"
+seed: 20261028
+clips_per_class: 56
+frame_ratios: [0.2, 0.4, 0.6, 0.8]
+grid_cell_size: 448
+jpeg_quality: 92
+split_ratios:
+  train: 0.7
+  val: 0.1
+  test: 0.2
+
+questions:
+  - field: activity
+    answer_type: single_choice
+    text: What is the user doing?
+  - field: posture
+    answer_type: single_choice
+    text: What is the user's posture?
+  - field: object_interaction
+    answer_type: multi_label
+    text: What object is the user interacting with?
+  - field: service_relevance
+    answer_type: multi_label
+    text: Which smart-home service is relevant to the current user status?
+
+classes:
+  Readbook:
+    activity: read_book
+    posture: sitting
+    mobility: stationary
+    object_interaction: [book_or_document]
+    scene_context: table_area
+    attention_state: focused
+    interruptibility: low
+    service_relevance: [lighting, notification_control]
+    risk_level: normal
+  WatchTV:
+    activity: watch_tv
+    posture: sitting
+    mobility: stationary
+    object_interaction: [tv]
+    scene_context: sofa_area
+    attention_state: media_consumption
+    interruptibility: medium
+    service_relevance: [entertainment, lighting]
+    risk_level: normal
+  Uselaptop:
+    activity: use_laptop
+    posture: sitting
+    mobility: stationary
+    object_interaction: [laptop]
+    scene_context: table_area
+    attention_state: focused
+    interruptibility: low
+    service_relevance: [lighting, notification_control, energy]
+    risk_level: normal
+  Drink.Fromcup:
+    activity: drink_from_cup
+    posture: unknown
+    mobility: stationary
+    object_interaction: [cup]
+    scene_context: table_area
+    attention_state: meal
+    interruptibility: medium
+    service_relevance: []
+    risk_level: normal
+  Takepills:
+    activity: take_pills
+    posture: unknown
+    mobility: stationary
+    object_interaction: [unknown]
+    scene_context: table_area
+    attention_state: task_engaged
+    interruptibility: medium
+    service_relevance: [medication, health_monitoring]
+    risk_level: attention_needed
+  Walk:
+    activity: walk
+    posture: standing
+    mobility: moving
+    object_interaction: [none]
+    scene_context: unknown
+    attention_state: transition
+    interruptibility: high
+    service_relevance: [lighting, occupancy]
+    risk_level: normal
+  Sitdown:
+    activity: sit_down
+    posture: transition
+    mobility: stationary
+    object_interaction: [none]
+    scene_context: unknown
+    attention_state: transition
+    interruptibility: high
+    service_relevance: [occupancy]
+    risk_level: normal
+  Getup:
+    activity: get_up
+    posture: transition
+    mobility: stationary
+    object_interaction: [none]
+    scene_context: unknown
+    attention_state: transition
+    interruptibility: high
+    service_relevance: [occupancy]
+    risk_level: normal
+  Cook.Usestove:
+    activity: cook_use_stove
+    posture: standing
+    mobility: stationary
+    object_interaction: [stove_or_oven]
+    scene_context: kitchen
+    attention_state: task_engaged
+    interruptibility: medium
+    service_relevance: [ventilation, safety]
+    risk_level: safety_sensitive
+
