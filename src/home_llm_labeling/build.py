@@ -72,7 +72,7 @@ def vqa_rows(row: dict[str, Any], questions: list[dict[str, Any]]) -> list[dict[
                 "answer": row["answer"][question["field"]],
                 "split": row["split"],
                 "source_activity": row["source_activity"],
-                "label_source": row["label_source"],
+                "label_source": row["label_source"], 
             }
         )
     return output
